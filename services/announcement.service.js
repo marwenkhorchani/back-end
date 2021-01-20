@@ -7,3 +7,7 @@ module.exports.getAnnouncements = function () {
 module.exports.deleteById = function (id) {
   return Ann.findByIdAndDelete(id);
 };
+
+module.exports.insertOne = function (obj) {
+  return Ann.create(obj);
+};

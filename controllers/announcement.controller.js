@@ -6,11 +6,17 @@ module.exports = {
     res.send(ann);
   },
 
-  deleteById: function (req, res, next) {
+  deleteById: function (req, res) {
     announcementService.deleteById(req.params.id).then(() => {
       announcementService.getAnnouncements().then((data) => {
         res.send(data);
       });
+    });
+  },
+
+  insertOne: function (req, res) {
+    announcementService.insertOne(req.body).then((data) => {
+      res.send(data);
     });
   }
 };
