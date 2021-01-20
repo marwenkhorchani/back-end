@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const app = express();
 const userRoute = require("./routes/user.route.js");
+const announcementRoute = require("./routes/announcement.route.js");
 
 mongoose
   .connect(process.env.DB_URI, {
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use("/api/user", userRoute);
+app.use("/api/announcement", announcementRoute);
 const PORT = process.env.PORT || 3030;
 
 app.listen(PORT, () => {
