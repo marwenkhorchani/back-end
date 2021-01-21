@@ -16,42 +16,38 @@ In order to add a new controller, just follow the following style:
     }
   },
 
-
 */
 
-const userService = require("../services/user.service.js")
+const userService = require("../services/user.service.js");
 
 module.exports = {
   async getUsers(req, res, next) {
     try {
-      const users = await userService.getUsers()
-      res.send(users)
-    }
-    catch(error) {
+      const users = await userService.getUsers();
+      res.send(users);
+    } catch (error) {
       // handle error
-      res.send("error")
+      res.send("error");
     }
   },
 
   async getUserById(req, res, next) {
     try {
-      const user = await userService.getUserById(req.params)
-      res.send(user)
-    }
-    catch(error) {
+      const user = await userService.getUserById(req.params);
+      res.send(user);
+    } catch (error) {
       // handle error
-      res.send("error")
+      res.send("error");
     }
   },
 
   async addUser(req, res, next) {
     try {
-      const user = await userService.addUser(req.body)
-      res.send(user)
-    }
-    catch(error) {
+      const user = await userService.addUser(req.body);
+      res.send(user);
+    } catch (error) {
       // handle error
-      res.send("error")
+      res.send(error);
     }
   }
-}
+};

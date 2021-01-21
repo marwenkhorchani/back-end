@@ -6,6 +6,7 @@ require("dotenv").config();
 const app = express();
 const userRoute = require("./routes/user.route.js");
 
+
 mongoose
   .connect(process.env.DB_URI, {
     useNewUrlParser: true,
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use("/api/user", userRoute);
+
 const PORT = process.env.PORT || 3030;
 
 app.listen(PORT, () => {
