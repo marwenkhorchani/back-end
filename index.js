@@ -7,6 +7,7 @@ const app = express();
 const userRoute = require("./routes/user.route.js");
 const loginRoute = require("./routes/login.route.js");
 const studentRoute = require("./routes/student.route.js");
+const teacherRoute = require("./routes/teacher.route.js");
 
 mongoose
   .connect(process.env.DB_URI, {
@@ -30,6 +31,8 @@ app.use("/api/user", userRoute);
 app.use("/api/login", loginRoute);
 
 app.use("/api/student", studentRoute);
+
+app.use("/api/teacher", teacherRoute);
 
 const PORT = process.env.PORT || 3030;
 
