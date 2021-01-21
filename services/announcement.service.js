@@ -11,3 +11,7 @@ module.exports.deleteById = function (id) {
 module.exports.insertOne = function (obj) {
   return Ann.create(obj);
 };
+
+module.exports.update = function (id, obj) {
+  return Ann.findByIdAndUpdate(id, obj);
+};
