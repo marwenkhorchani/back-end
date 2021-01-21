@@ -9,9 +9,9 @@ router.[METHOD]("[ENDPOINT]", [NAME_OF_THE_CONTROLLER].[NAME_OF_THE_FUNCTION])
 */
 
 const router = require("express").Router();
-const studentController = require("../controllers/student.controller.js");
+const gradeController = require("../controllers/grade.controller.js");
 
-router.get("/", studentController.getStudent);
-router.get("/:_id", studentController.getStudentById);
+router.get("/", gradeController.getGrade);
+router.get("/:_id", gradeController.getGradeById);
 
 module.exports = router;

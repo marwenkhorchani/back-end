@@ -6,7 +6,7 @@ require("dotenv").config();
 const app = express();
 const userRoute = require("./routes/user.route.js");
 const loginRoute = require("./routes/login.route.js");
-const studentRoute = require("./routes/student.route.js");
+const gradeRoute = require("./routes/grade.route.js");
 
 mongoose
   .connect(process.env.DB_URI, {
@@ -28,7 +28,7 @@ app.use(cors());
 app.use("/api/user", userRoute);
 
 app.use("/api/login", loginRoute);
-app.use("/api/student", studentRoute);
+app.use("/api/grade", gradeRoute);
 
 const PORT = process.env.PORT || 3030;
 
