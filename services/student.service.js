@@ -4,6 +4,9 @@ module.exports = new (class StudentService {
   }
 
   getStudent() {
-    return this.student.find();
+    return this.student.find().populate("class");
+  }
+  getStudentById({ _id }) {
+    return this.student.findById(_id).populate("grade");
   }
 })();
