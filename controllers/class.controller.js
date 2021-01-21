@@ -18,54 +18,54 @@ In order to add a new controller, just follow the following style:
 
 */
 
-const teacherService = require("../services/teacher.service.js");
+const classService = require("../services/class.service.js");
 
 module.exports = {
-  async getTeachers(req, res, next) {
+  async getClasss(req, res, next) {
     try {
-      const teachers = await teacherService.getTeachers();
-      res.send(teachers);
+      const classs = await classService.getClasss();
+      res.send(classs);
     } catch (error) {
       // handle error
       res.send("error");
     }
   },
-  async updateTeacherById(req, res, next) {
+  async updateClassById(req, res, next) {
     try {
-      const teacher = await teacherService.updateTeacherById(
+      const classs = await classService.updateClassById(
         req.params,
         req.body
       );
-      res.send(teacher);
+      res.send(classs);
     } catch (error) {
       // handle error
       res.send("error");
     }
   },
 
-  async deleteTeacherById(req, res, next) {
+  async deleteClassById(req, res, next) {
     try {
-      const teacher = await teacherService.deleteTeacherById(req.params);
-      res.send(teacher);
+      const classs = await classService.deleteClassById(req.params);
+      res.send(classs);
     } catch (error) {
       // handle error
       res.send("error");
     }
   },
-  async getTeacherById(req, res, next) {
+  async getClassById(req, res, next) {
     try {
-      const teacher = await teacherService.getTeacherById(req.params);
-      res.send(teacher);
+      const classs = await classService.getclassById(req.params);
+      res.send(classs);
     } catch (error) {
       // handle error
       res.send("error");
     }
   },
 
-  async addTeacher(req, res, next) {
+  async addClass(req, res, next) {
     try {
-      const teacher = await teacherService.addTeacher(req.body);
-      res.send(teacher);
+      const classs = await classService.addClass(req.body);
+      res.send(classs);
     } catch (error) {
       // handle error
       res.send(error);
