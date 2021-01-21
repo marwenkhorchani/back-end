@@ -12,6 +12,6 @@ const router = require("express").Router();
 const gradeController = require("../controllers/grade.controller.js");
 
 router.get("/", gradeController.getGrade);
-router.get("/:_id", gradeController.getGradeById);
+router.get("/:student", gradeController.getGradeById);
 
 module.exports = router;

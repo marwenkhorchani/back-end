@@ -6,7 +6,10 @@ module.exports = new (class GradeService {
   getGrade() {
     return this.grade.find().populate("student").populate("class");
   }
-  getGradeById({ _id }) {
-    return this.grade.findById(_id).populate("student").populate("class");
+  getGradeById({ student }) {
+    return this.grade
+      .find({ student: student })
+      .populate("student")
+      .populate("class");
   }
 })();
