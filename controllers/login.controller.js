@@ -21,7 +21,7 @@ In order to add a new controller, just follow the following style:
 
 const adminService = require("../services/admin.service.js");
 const teacherService = require("../services/teacher.service.js");
-const studentService = require("../services/student.service.js");
+const studentService = require("../services/grade.service.js");
 const bcrypt = require("bcrypt");
 module.exports = {
   async login(req, res, next) {
