@@ -9,6 +9,7 @@ const loginRoute = require("./routes/login.route.js");
 const studentRoute = require("./routes/student.route.js");
 const teacherRoute = require("./routes/teacher.route.js");
 const classRoute = require("./routes/class.route.js");
+const adminRoute = require("./routes/admin.route.js");
 
 mongoose
   .connect(process.env.DB_URI, {
@@ -36,6 +37,8 @@ app.use("/api/student", studentRoute);
 app.use("/api/teacher", teacherRoute);
 
 app.use("/api/class", classRoute);
+
+app.use("/api/admin", adminRoute);
 
 const PORT = process.env.PORT || 3030;
 

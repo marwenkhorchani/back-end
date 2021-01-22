@@ -18,54 +18,54 @@ In order to add a new controller, just follow the following style:
 
 */
 
-const classService = require("../services/class.service.js");
+const adminService = require("../services/admin.service.js");
 
 module.exports = {
-  async getClasses(req, res, next) {
+  async getAdmins(req, res, next) {
     try {
-      const classs = await classService.getClasses();
-      res.send(classs);
+      const admins = await adminService.getAdmins();
+      res.send(admins);
     } catch (error) {
       // handle error
       res.send("error");
     }
   },
-  async updateClassById(req, res, next) {
+  async updateAdminById(req, res, next) {
     try {
-      const classs = await classService.updateClassById(
+      const admin = await adminService.updateAdminById(
         req.params,
         req.body
       );
-      res.send(classs);
+      res.send(admin);
     } catch (error) {
       // handle error
       res.send("error");
     }
   },
 
-  async deleteClassById(req, res, next) {
+  async deleteAdminById(req, res, next) {
     try {
-      const classs = await classService.deleteClassById(req.params);
-      res.send(classs);
+      const admin = await adminService.deleteAdminById(req.params);
+      res.send(admin);
     } catch (error) {
       // handle error
       res.send("error");
     }
   },
-  async getClassById(req, res, next) {
+  async getAdminById(req, res, next) {
     try {
-      const classs = await classService.getClassById(req.params);
-      res.send(classs);
+      const admin = await adminService.getAdminById(req.params);
+      res.send(admin);
     } catch (error) {
       // handle error
       res.send("error");
     }
   },
 
-  async addClass(req, res, next) {
+  async addAdmin(req, res, next) {
     try {
-      const classs = await classService.addClass(req.body);
-      res.send(classs);
+      const admin = await adminService.addAdmin(req.body);
+      res.send(admin);
     } catch (error) {
       // handle error
       res.send(error);

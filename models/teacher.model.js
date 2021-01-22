@@ -16,8 +16,15 @@ const teacherSchema = new mongoose.Schema({
   img: {
     type: String
   },
+  email: {
+    type: String,
+    unique: true,
+    required: true
+  },
   cin: {
-    type: Number
+    type: Number,
+    unique: true,
+    required: true
   },
   phone: {
     type: Number
@@ -27,10 +34,8 @@ const teacherSchema = new mongoose.Schema({
   },
   classes: [
     {
-      id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "class"
-      }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "class"
     }
   ]
 });

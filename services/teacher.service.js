@@ -2,8 +2,8 @@ module.exports = new (class TeachertService {
   constructor() {
     this.teacher = require("../models/teacher.model.js");
   }
-  getTeacher() {
-    return this.teacher.find();
+  getTeachers() {
+    return this.teacher.find().populate("classes");
   }
   deleteTeacherById({ _id }) {
     return this.teacher.findByIdAndDelete(_id);
@@ -12,7 +12,7 @@ module.exports = new (class TeachertService {
     return this.teacher.findByIdAndUpdate(_id, payload);
   }
   getTeacherById({ _id }) {
-    return this.teacher.findById(_id);
+    return this.teacher.findById(_id).populate("classes");
   }
   addTeacher(payload) {
     return this.teacher.create(payload);

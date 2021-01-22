@@ -11,7 +11,7 @@ router.[METHOD]("[ENDPOINT]", [NAME_OF_THE_CONTROLLER].[NAME_OF_THE_FUNCTION])
 const router = require("express").Router();
 const classController = require("../controllers/class.controller.js");
 
-router.get("/", classController.getClasss);
+router.get("/", classController.getClasses);
 
 router.post("/", classController.addClass);
 

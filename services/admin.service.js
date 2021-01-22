@@ -3,11 +3,19 @@ module.exports = new (class AdminService {
     this.admin = require("../models/admin.model.js");
   }
 
-  getAdmin(payload) {
-    return this.admin.find({
-      username: payload.username
-      
-    });
-    
+  getAdmins() {
+    return this.admin.find().populate("classes");
+  }
+  deleteAdminById({ _id }) {
+    return this.admin.findByIdAndDelete(_id);
+  }
+  updateAdminById(_id, payload) {
+    return this.admin.findByIdAndUpdate(_id, payload);
+  }
+  getAdminById({ _id }) {
+    return this.admin.findById(_id).populate("classes");
+  }
+  addAdmin(payload) {
+    return this.admin.create(payload);
   }
 })();

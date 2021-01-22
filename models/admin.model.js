@@ -12,7 +12,26 @@ const adminSchema = new mongoose.Schema({
   },
   lastname: {
     type: String
-  }
+  },
+  img: {
+    type: String
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  cin: {
+    type: Number,
+    unique: true,
+    required: true
+  },
+  phone: {
+    type: Number
+  },
+  birthday: {
+    type: Date
+  },
 });
 
 const adminModel = mongoose.model("admin", adminSchema);

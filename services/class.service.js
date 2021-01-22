@@ -2,7 +2,7 @@ module.exports = new (class classtService {
   constructor() {
     this.class = require("../models/class.model.js");
   }
-  getClass() {
+  getClasses() {
     return this.class.find();
   }
   deleteClassById({ _id }) {
@@ -12,7 +12,7 @@ module.exports = new (class classtService {
     return this.class.findByIdAndUpdate(_id, payload);
   }
   getClassById({ _id }) {
-    return this.class.findById(_id);
+    return this.class.findById(_id).populate("student ");
   }
   addClass(payload) {
     return this.class.create(payload);
