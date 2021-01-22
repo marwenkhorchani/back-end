@@ -4,7 +4,7 @@ const teacherSchema = new mongoose.Schema({
   username: {
     type: String
   },
-  parssword: {
+  password: {
     type: String
   },
   firstname: {
@@ -37,7 +37,11 @@ const teacherSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "class"
     }
-  ]
+  ],
+  role: {
+    type: String,
+    default: "teacher"
+  }
 });
 
 const teacherModel = mongoose.model("teacher", teacherSchema);

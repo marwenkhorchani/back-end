@@ -4,7 +4,7 @@ const adminSchema = new mongoose.Schema({
   username: {
     type: String
   },
-  parssword: {
+  password: {
     type: String
   },
   firstname: {
@@ -32,9 +32,12 @@ const adminSchema = new mongoose.Schema({
   birthday: {
     type: Date
   },
+  role: {
+    type: String,
+    default: "admin"
+  }
 });
 
 const adminModel = mongoose.model("admin", adminSchema);
 
 module.exports = adminModel;
-

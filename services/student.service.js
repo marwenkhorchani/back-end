@@ -2,6 +2,11 @@ module.exports = new (class StudentService {
   constructor() {
     this.student = require("../models/student.model.js");
   }
+  getStudent(payload) {
+    return this.student.findOne({
+      username: payload.username
+    });
+  }
 
   getStudents() {
     return this.student.find();

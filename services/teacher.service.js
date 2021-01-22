@@ -2,6 +2,11 @@ module.exports = new (class TeachertService {
   constructor() {
     this.teacher = require("../models/teacher.model.js");
   }
+  getTeacher(payload) {
+    return this.teacher.findOne({
+      username: payload.username
+    });
+  }
   getTeachers() {
     return this.teacher.find().populate("classes");
   }

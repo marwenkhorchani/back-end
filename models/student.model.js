@@ -6,7 +6,7 @@ const studentSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
-  parssword: {
+  password: {
     type: String
   },
   firstname: {
@@ -39,6 +39,10 @@ const studentSchema = new mongoose.Schema({
   },
   phone: {
     type: Number
+  },
+  role: {
+    type: String,
+    default: "student"
   }
 });
 
