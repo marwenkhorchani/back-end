@@ -10,7 +10,6 @@ module.exports = {
       res.send("error");
     }
   },
-
   async getGradeById(req, res, next) {
     try {
       const grade = await gradeService.getGradeById(req.params);
