@@ -6,6 +6,10 @@ require("dotenv").config();
 const app = express();
 const userRoute = require("./routes/user.route.js");
 const loginRoute = require("./routes/login.route.js");
+const studentRoute = require("./routes/student.route.js");
+const teacherRoute = require("./routes/teacher.route.js");
+const classRoute = require("./routes/class.route.js");
+const adminRoute = require("./routes/admin.route.js");
 const scheduleRoute = require("./routes/schedule.route.js");
 const gradeRoute = require("./routes/grade.route.js");
 
@@ -34,6 +38,14 @@ app.use("/api/grade", gradeRoute);
 
 app.use("/api/schedule", scheduleRoute);
 
+
+app.use("/api/student", studentRoute);
+
+app.use("/api/teacher", teacherRoute);
+
+app.use("/api/class", classRoute);
+
+app.use("/api/admin", adminRoute);
 
 const PORT = process.env.PORT || 3030;
 
