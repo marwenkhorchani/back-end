@@ -10,6 +10,9 @@ const studentRoute = require("./routes/student.route.js");
 const teacherRoute = require("./routes/teacher.route.js");
 const classRoute = require("./routes/class.route.js");
 const adminRoute = require("./routes/admin.route.js");
+const scheduleRoute = require("./routes/schedule.route.js");
+const gradeRoute = require("./routes/grade.route.js");
+
 
 mongoose
   .connect(process.env.DB_URI, {
@@ -31,6 +34,10 @@ app.use(cors());
 app.use("/api/user", userRoute);
 
 app.use("/api/login", loginRoute);
+app.use("/api/grade", gradeRoute);
+
+app.use("/api/schedule", scheduleRoute);
+
 
 app.use("/api/student", studentRoute);
 
