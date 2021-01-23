@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const app = express();
 const userRoute = require("./routes/user.route.js");
+const activityRoute = require("./routes/activity.route.js");
 const loginRoute = require("./routes/login.route.js");
 const studentRoute = require("./routes/student.route.js");
 const teacherRoute = require("./routes/teacher.route.js");
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/api/user", userRoute);
+app.use("/api/activity", activityRoute);
 
 app.use("/api/login", loginRoute);
 app.use("/api/grade", gradeRoute);
