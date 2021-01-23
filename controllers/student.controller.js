@@ -17,6 +17,15 @@ In order to add a new controller, just follow the following style:
   },
 
 */
+var nodemailer = require("nodemailer");
+
+var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PSW
+  }
+});
 
 const studentService = require("../services/student.service.js");
 
@@ -65,6 +74,26 @@ module.exports = {
   async addStudent(req, res, next) {
     try {
       const student = await studentService.addStudent(req.body);
+
+      var mailOptions = {
+        from: process.env.EMAIL,
+        to: student.email,
+        subject: "Your Student Acoount was created",
+        text:
+          "Welcome! " +
+          student.username +
+          " we are so lucky to have you with us. we hope you enjoy it. Please login with this  password :" +
+          student.password +
+          " and it would be better if you change it for yor securety"
+      };
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Email sent: " + info.response);
+        }
+      });
       res.send(student);
     } catch (error) {
       // handle error

@@ -5,7 +5,8 @@ const teacherSchema = new mongoose.Schema({
     type: String
   },
   password: {
-    type: String
+    type: String,
+    default: "iuidok874soqq"
   },
   firstname: {
     type: String

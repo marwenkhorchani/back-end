@@ -7,7 +7,8 @@ const studentSchema = new mongoose.Schema({
     required: true
   },
   password: {
-    type: String
+    type: String,
+    default: "hellothere"
   },
   firstname: {
     type: String

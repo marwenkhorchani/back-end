@@ -18,6 +18,16 @@ In order to add a new controller, just follow the following style:
 
 */
 
+var nodemailer = require("nodemailer");
+
+var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "schoolemyschoole94@gmail.com",
+    pass: "Rbk123123"
+  }
+});
+
 const adminService = require("../services/admin.service.js");
 
 module.exports = {
@@ -32,10 +42,7 @@ module.exports = {
   },
   async updateAdminById(req, res, next) {
     try {
-      const admin = await adminService.updateAdminById(
-        req.params,
-        req.body
-      );
+      const admin = await adminService.updateAdminById(req.params, req.body);
       res.send(admin);
     } catch (error) {
       // handle error
@@ -65,6 +72,25 @@ module.exports = {
   async addAdmin(req, res, next) {
     try {
       const admin = await adminService.addAdmin(req.body);
+      var mailOptions = {
+        from: process.env.EMAIL,
+        to: admin.email,
+        subject: "Your Admin Acoount was created",
+        text:
+          "Welcome! " +
+          admin.username +
+          " we are so lucky to have you with us. we hope you enjoy it. Please login with this  password :" +
+          admin.password +
+          " and it would be better if you change it for yor securety"
+      };
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Email sent: " + info.response);
+        }
+      });
       res.send(admin);
     } catch (error) {
       // handle error
