@@ -28,8 +28,7 @@ module.exports = {
     try {
       if (req.body.role === "admin") {
         const admin = await adminService.getAdmin(req.body);
-        // console.log("hhhhhhhhhhhhhhhhhhhh",req.body)
-        
+
         if (!admin) {
           res.status(400).json({ message: " Unauthorized request" });
           res.end();
