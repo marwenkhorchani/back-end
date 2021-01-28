@@ -5,11 +5,10 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const app = express();
 const userRoute = require("./routes/user.route.js");
-
+const todosRoute = require("./routes/todos.route.js");
 const announcementRoute = require("./routes/announcement.route.js");
 
 const activityRoute = require("./routes/activity.route.js");
-
 const loginRoute = require("./routes/login.route.js");
 const studentRoute = require("./routes/student.route.js");
 const teacherRoute = require("./routes/teacher.route.js");
@@ -17,6 +16,7 @@ const classRoute = require("./routes/class.route.js");
 const adminRoute = require("./routes/admin.route.js");
 const scheduleRoute = require("./routes/schedule.route.js");
 const gradeRoute = require("./routes/grade.route.js");
+const coursesRoute = require("./routes/courses.route.js");
 
 
 mongoose
@@ -37,6 +37,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/api/user", userRoute);
+app.use("/api/task", todosRoute);
 
 app.use("/api/announcement", announcementRoute);
 
@@ -48,7 +49,7 @@ app.use("/api/grade", gradeRoute);
 
 app.use("/api/schedule", scheduleRoute);
 
-
+app.use("/api/courses", coursesRoute);
 app.use("/api/student", studentRoute);
 
 app.use("/api/teacher", teacherRoute);
